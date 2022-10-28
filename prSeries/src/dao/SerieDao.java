@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,6 +17,25 @@ public class SerieDao  implements Dao<Serie>{
 		
 	}
 
+	public static Serie findById(int id) {
+		connection= openConnection();
+		String query="select * from animales where id= ?";
+		Serie serie;
+		try {
+			PreparedStatement ps =connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				serie=new Serie(rs.getInt("id"),rs.getString("titulo"),rs.getInt("edad"),rs.getString("plataforma"),null);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	@Override
 	public ArrayList<Serie> buscarTodos() {
 		// TODO Auto-generated method stub

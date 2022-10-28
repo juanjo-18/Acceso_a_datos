@@ -1,5 +1,7 @@
 package dao;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import prSeries.Temporada;
@@ -21,6 +23,23 @@ public class TemporadaDao implements Dao<Temporada> {
 	@Override
 	public void insert(Temporada t) {
 		// TODO Auto-generated method stub
+		 connection = openConnection();
+		String query="insert into temporadas(num_temporada,titulo, serie_id values (?,?,?)";
+		
+		try {
+			PreparedStatement ps=connection.prepareStatement(query);
+			ps.setInt(1, t.getNum_temporada());
+			ps.setString(2, t.getTitulo());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		closeConnection();
+		
 		
 	}
 
