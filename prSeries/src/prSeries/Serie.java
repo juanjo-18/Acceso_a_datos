@@ -3,13 +3,14 @@ package prSeries;
 import java.util.ArrayList;
 
 public class Serie {
+
 	private int id;
 	private String titulo;
 	private int edad;
 	private String plataforma;
-	ArrayList<Temporada> temporadas;
+	private ArrayList<Temporada> temporadas;
 	
-	public Serie( String titulo, int edad, String plataforma) {
+	public Serie(String titulo, int edad, String plataforma) {
 		super();
 		this.titulo = titulo;
 		this.edad = edad;
@@ -28,7 +29,6 @@ public class Serie {
 	public int getId() {
 		return id;
 	}
-
 
 	public String getTitulo() {
 		return titulo;
@@ -64,8 +64,7 @@ public class Serie {
 
 	@Override
 	public String toString() {
-		return "Serie id=" + id + ", titulo=" + titulo + ", edad=" + edad + ", plataforma=" + plataforma
-				+ ", temporadas=" ;
+		return "Serie [id=" + id + ", titulo=" + titulo + ", edad=" + edad + ", plataforma=" + plataforma + "]";
 	}
 	
 	

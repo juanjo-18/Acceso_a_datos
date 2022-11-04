@@ -1,20 +1,18 @@
 package prSeries;
 
 public class Temporada {
-
 	private int id;
 	private int num_temporada;
 	private String titulo;
 	private Serie serie;
 	
-
 	public Temporada(int num_temporada, String titulo, Serie serie) {
 		super();
 		this.num_temporada = num_temporada;
 		this.titulo = titulo;
 		this.serie = serie;
 	}
-	
+
 	public Temporada(int id, int num_temporada, String titulo, Serie serie) {
 		super();
 		this.id = id;
@@ -25,10 +23,6 @@ public class Temporada {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getNum_temporada() {
@@ -57,7 +51,8 @@ public class Temporada {
 
 	@Override
 	public String toString() {
-		return "Temporada [id=" + id + ", num_temporada=" + num_temporada + ", titulo=" + titulo + ", titulo serie=" + serie.getTitulo();
+		return "Temporada [id=" + id + ", num_temporada=" + num_temporada + ", titulo=" + titulo + ", título serie=" + serie.getTitulo()
+				+ "]";
 	}
 	
 	
