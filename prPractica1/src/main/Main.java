@@ -33,11 +33,11 @@ public class Main {
 		System.out.println(casaDao.buscarTodos() + "" + muebleDao.buscarTodos() + "\n");
 
 		// Modificamos una casa
-		Casa casa1 = casaDao.buscarPorDireccion(calle, numero);
+		Casa casa1 = new CasaDao().buscarPorDireccion(calle, numero);
 		casa1.setMunicipio("Estacion De Cartama");
 		System.out.println(casaDao.buscarTodos());
 		casaDao.modificar(casa1);
-		System.out.println("Modificada: " + casaDao.buscarTodos() + "\n");
+		System.out.println("Modificada: " + casa1+ "\n");
 
 		// Buscar casa por id
 		System.out.println(casaDao.buscarPorId(casaDao.buscarPorDireccion(calle, numero).getId()) + "\n");
@@ -79,11 +79,11 @@ public class Main {
 		
 		
 		// Modificar mueble
-		Mueble mueble3 =muebleDao.buscarPorMedidas(70, 100, 200);
+		Mueble mueble3=new MuebleDao().buscarPorMedidas(70, 100, 200);
 		mueble3.setNombre("Silla");
 		mueble3.setCasa(casa);
 		muebleDao.modificar(mueble3);
-		System.out.println("Modificado: " + muebleDao.buscarTodos() + "\n");
+		System.out.println("Modificado: " +mueble3 + "\n");
 		
 		
 		// Buscar mueble por id

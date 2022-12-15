@@ -72,9 +72,10 @@ public class MainMenu {
 			case 5:
 				Casa casa1 = new Casa("Caceres", 2, "Cartama", "Malaga");
 				casaDao.insertar(casa1);
-				casa1 = new Casa(casaDao.buscarPorDireccion(casa1.getCalle(), casa1.getNumero()).getId(), "Caceres", 2,
-						"Estacion de cartama", "Malaga");
-				casaDao.modificar(casa1);
+				Casa casa2 = new CasaDao().buscarPorDireccion("Caceres", 2);
+				casa1.setMunicipio("Estacion De Cartama");
+				casaDao.modificar(casa2);
+				
 				break;
 			case 6:
 				casa = casaDao.buscarPorId(28);
@@ -106,9 +107,10 @@ public class MainMenu {
 				Mueble mueble3 = new Mueble("Silla", 100, 90, 80,
 						casaDao.buscarPorDireccion(casa.getCalle(), casa.getNumero()));
 				muebleDao.insertar(mueble3);
-				mueble3 = new Mueble(muebleDao.buscarPorMedidas(100, 90, 80).getId(), "Silla", 120, 90, 80,
-						casaDao.buscarPorDireccion(casa.getCalle(), casa.getNumero()));
-				muebleDao.modificar(mueble3);
+				Mueble mueble4=new MuebleDao().buscarPorMedidas(100, 90, 80);
+				mueble4.setNombre("Mesa");
+				mueble4.setCasa(casa);
+				muebleDao.modificar(mueble4);
 				break;
 			case 13:
 				System.out.println(muebleDao.buscarPorId(17844));
